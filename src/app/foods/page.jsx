@@ -2,7 +2,7 @@ import FoodCard from "../components/cards/FoodCard";
 
 const getFoods = async () => {
   const res = await fetch(
-    " https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
+    "https://taxi-kitchen-api.vercel.app/api/v1/foods/random"
   );
   const data = await res.json();
   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -11,6 +11,7 @@ const getFoods = async () => {
 
 const FoodsPage = async () => {
   const foods = await getFoods();
+  console.log(foods);
 
   return (
     <div>
