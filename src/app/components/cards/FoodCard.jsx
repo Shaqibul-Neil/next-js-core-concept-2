@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CardButton from "../buttons/CardButton";
 
 const FoodCard = ({ food }) => {
   const { title, category, foodImg, price, id } = food;
@@ -15,10 +16,7 @@ const FoodCard = ({ food }) => {
         <p className="text-lg font-bold text-emerald-600">৳ {price}</p>
 
         <div className="flex gap-2 pt-3">
-          <button className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-lg text-sm">
-            Add to Cart
-          </button>
-
+          <CardButton food={food} />
           <Link
             href={`/foods/${id}`}
             className="flex-1 text-center border border-gray-300 hover:bg-gray-100 py-2 rounded-lg text-sm bg-slate-700"
