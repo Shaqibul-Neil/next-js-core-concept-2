@@ -1,6 +1,7 @@
 import FoodCard from "../components/cards/FoodCard";
 import InputSearch from "../components/search/InputSearch";
 import CartItems from "./cart/CartItems";
+import style from "./foods.module.css";
 
 const getFoods = async (search) => {
   const res = await fetch(
@@ -17,7 +18,9 @@ const FoodsPage = async ({ searchParams }) => {
 
   return (
     <div>
-      <h2 className="text-4xl font-bold">Total {foods.length} Foods Found</h2>
+      <h2 className={`text-4xl font-bold ${style.bgred}`}>
+        Total {foods.length} Foods Found
+      </h2>
       <div className="my-4">
         <InputSearch />
       </div>
