@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 export function generateStaticParams() {
   return [{ id: "52924" }, { id: "52838" }, { id: "52803" }];
@@ -74,12 +75,13 @@ const FoodDetailsPage = async ({ params }) => {
   const { id } = await params;
   const food = await getSingleFood(id);
 
-  if (!food) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <h2 className="text-2xl font-bold text-red-500">Food Not Found!</h2>
-      </div>
-    );
+  if (!food || !food.title) {
+    redirect("/foods");
+    // return (
+    //   <div className="flex justify-center items-center h-screen">
+    //     <h2 className="text-2xl font-bold text-red-500">Food Not Found!</h2>
+    //   </div>
+    // );
   }
 
   const { title, foodImg, price, category, area, video } = food;

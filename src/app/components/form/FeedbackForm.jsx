@@ -1,5 +1,9 @@
 "use client";
+
+import { useRouter } from "next/navigation";
+
 const FeedbackForm = () => {
+  const router = useRouter();
   const handleAddFeedback = async (e) => {
     e.preventDefault();
     const message = e.target.message.value;
@@ -13,6 +17,7 @@ const FeedbackForm = () => {
     const data = await res.json();
     if (data.insertedId) {
       alert("success");
+      router.push("/feedbacks");
     }
   };
   return (

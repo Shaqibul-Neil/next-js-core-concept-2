@@ -8,6 +8,7 @@ export const metadata = {
 const getFeedBack = async () => {
   const res = await fetch("http://localhost:3000/api/feedback/", {
     cache: "force-cache",
+    //if there are multiple user and we need to show data of others
     next: { revalidate: 60 },
   });
 

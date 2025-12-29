@@ -19,6 +19,16 @@ const nextConfig = {
       },
     ],
   },
+  //if we change an existing route
+  async redirects() {
+    return [
+      {
+        source: "/food-details/:id",
+        destination: "/foods/:id",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
