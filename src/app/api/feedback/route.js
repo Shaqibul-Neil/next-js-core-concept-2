@@ -1,4 +1,5 @@
 import clientPromise from "@/app/lib/dbConnect";
+import { revalidatePath } from "next/cache";
 
 const client = await clientPromise;
 const db = client.db("feedbackDB");
@@ -23,5 +24,6 @@ export async function POST(request) {
 
   const newFeedback = { message, date: new Date().toISOString() };
   const result = await feedbackCollection.insertOne(newFeedback);
+  revalidatePath("/feedbacks");
   return Response.json(result);
 }

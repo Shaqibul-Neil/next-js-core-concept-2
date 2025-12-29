@@ -36,6 +36,6 @@ export async function PATCH(request, { params }) {
   const query = { _id: new ObjectId(id) };
   const newData = { $set: { message } };
   const result = await feedbackCollection.updateOne(query, newData);
-  console.log(result);
+  //console.log(result);
   return Response.json(result);
 }
